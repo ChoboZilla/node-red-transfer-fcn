@@ -16,11 +16,11 @@ den = np.array ([cnvStr(sys.argv[8]), cnvStr(sys.argv[7]), cnvStr(sys.argv[6]), 
 
 W = control.tf(num, den)
 
-
-
-
-#To understand what you need to send see python.control.tf and python.control TransferFunction class documentation 
+for i in range(0,14) :
+    ret = W.__call__(i * 1j)
+    print(ret)
+# We send back to JS 15 pairs that means points on complex plane (x = Real, y = Imaginary). We can do smth wit this pairs i think
                                                                                            
 #What you print with the print() function will be sent back to JS like string
-print(W)
+
 sys.stdout.flush()
