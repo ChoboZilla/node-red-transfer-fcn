@@ -15,11 +15,9 @@ num = np.array ([cnvStr(sys.argv[4]), cnvStr(sys.argv[3]), cnvStr(sys.argv[2]), 
 den = np.array ([cnvStr(sys.argv[8]), cnvStr(sys.argv[7]), cnvStr(sys.argv[6]), cnvStr(sys.argv[5])])
 
 W = control.tf(num, den)
-
-for i in range(0,14) :
-    ret = W.__call__(i * 1j)
-    print(ret)
-# We send back to JS 15 pairs that means points on complex plane (x = Real, y = Imaginary). We can do smth wit this pairs i think
+#print(W)
+ret = W.__call__(cnvStr(sys.argv[9]) * 1j) #argv[9] - msg from other node
+print(ret)
                                                                                            
 #What you print with the print() function will be sent back to JS like string
 
